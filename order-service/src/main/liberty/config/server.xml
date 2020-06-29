@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <featureManager>
+        <feature>jpa-2.2</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jsonb-1.0</feature>
+        <feature>cdi-2.0</feature>
+    </featureManager>
+
+    <applicationManager autoExpand="true" />
+    <mpMetrics authentication="false"/>
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="${HTTP_PORT}" httpsPort="${HTTPS_PORT}"/>
+
+    <dataSource id="DefaultDataSource" jndiName="jdbc/oderServiceDataSource"
+                type="javax.sql.ConnectionPoolDataSource" transactional="true">
+        <jdbcDriver libraryRef="postgresql-library"/>
+        <properties.postgresql serverName="${POSTGRES_HOSTNAME}"
+                               portNumber="${POSTGRES_PORT}"
+                               user="${POSTGRES_USER}"
+                               password="${POSTGRES_PASSWORD}"
+                               databaseName="${POSTGRES_DB}"/>
+    </dataSource>
+
+    <library id="postgresql-library">
+        <fileset dir="${server.config.dir}/postgres"/>
+    </library>
+
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true"/>
+</server>
