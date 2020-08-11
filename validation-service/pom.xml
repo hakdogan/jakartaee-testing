@@ -21,7 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <openliberty-runtime.version></openliberty-runtime.version>
+        <openliberty.runtime.version></openliberty.runtime.version>
         <junit.version>4.12</junit.version>
         <app.name>ValidationServiceProject</app.name>
         <liberty.var.HTTP_PORT>9080</liberty.var.HTTP_PORT>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>io.openliberty</groupId>
             <artifactId>openliberty-runtime</artifactId>
-            <version>${openliberty-runtime.version}</version>
+            <version>${openliberty.runtime.version}</version>
             <type>zip</type>
         </dependency>
         <!-- For JDK 9 & above Support -->
