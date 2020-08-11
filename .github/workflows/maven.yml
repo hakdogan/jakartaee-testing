@@ -21,5 +21,5 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-      run: mvn clean install --file validation-service/pom.xml & \
-mvn clean install --file order-service/pom.xml
+      run: mvn clean install --file validation-service/pom.xml
+      run: mvn clean install --file order-service/pom.xml
