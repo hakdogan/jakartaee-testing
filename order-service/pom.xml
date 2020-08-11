@@ -15,6 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <openliberty.runtime.version>20.0.0.8</openliberty.runtime.version>
         <liberty.var.HTTP_PORT>9082</liberty.var.HTTP_PORT>
         <liberty.var.HTTPS_PORT>9445</liberty.var.HTTPS_PORT>
         <liberty.var.POSTGRES_HOSTNAME>localhost</liberty.var.POSTGRES_HOSTNAME>
@@ -34,7 +35,7 @@
         <dependency>
             <groupId>io.openliberty</groupId>
             <artifactId>openliberty-runtime</artifactId>
-            <version>20.0.0.8</version>
+            <version>${openliberty.runtime.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
