@@ -3,7 +3,6 @@ package jugistanbul.ecommerce.order.controller;
 import jugistanbul.ecommerce.order.client.ValidationServiceClient;
 import jugistanbul.ecommerce.order.dao.OrderDAO;
 import jugistanbul.ecommerce.order.entity.OrderDemand;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -16,7 +15,6 @@ import java.util.List;
  * @author hakdogan (hakdogan@kodcu.com)
  * Created on 29.06.2020
  **/
-@ApplicationScoped
 @Path("order")
 public class OrderController
 {

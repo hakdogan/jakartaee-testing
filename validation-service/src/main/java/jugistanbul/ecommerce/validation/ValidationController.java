@@ -1,6 +1,5 @@
 package jugistanbul.ecommerce.validation;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.*;
@@ -11,7 +10,6 @@ import javax.ws.rs.core.Response;
  * @author hakdogan (hakdogan@kodcu.com)
  * Created on 29.06.2020
  **/
-@ApplicationScoped
 @Path("validation")
 public class ValidationController
 {
