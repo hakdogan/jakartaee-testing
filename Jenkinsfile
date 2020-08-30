@@ -71,7 +71,9 @@ def runApp(containerName, tag, dockerHubUser, httpPort, httpsPort){
 }
 
 def deployKubernetes(deploymentName, port){
-    sh "microk8s.kubectl apply -f validation.yaml"
-    sh "microk8s.kubectl expose deployment $deploymentName --type=LoadBalancer --port $port"
+    dir("validation-service") {
+        sh "microk8s.kubectl apply -f validation.yaml"
+        sh "microk8s.kubectl expose deployment $deploymentName --type=LoadBalancer --port $port"
+    }
     echo "Application started on port: ${port} (http)"
 }
