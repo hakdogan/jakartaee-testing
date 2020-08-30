@@ -1,4 +1,4 @@
-def CONTAINER_NAME="jenkins-pipeline"
+def CONTAINER_NAME="validation-service"
 def CONTAINER_TAG="01"
 def DOCKER_HUB_USER="hakdogan"
 def HTTP_PORT="9080"
