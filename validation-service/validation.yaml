@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validation-service
+  labels:
+    app: validation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: validation-service
+  template:
+    metadata:
+      labels:
+        app: validation-service
+    spec:
+      containers:
+        - name: validation-service
+          image: hakdogan/validasyon-service:01
+          env:
+            - name: HTTP_PORT
+              value: "9080"
+            - name: HTTPS_PORT
+              value: "9443"
+          ports:
+            - containerPort: 9080
