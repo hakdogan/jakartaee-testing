@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: validation-service
-          image: hakdogan/validasyon-service:01
+          image: hakdogan/validation-service:01
           env:
             - name: HTTP_PORT
               value: "9080"
