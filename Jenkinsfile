@@ -1,5 +1,6 @@
 def CONTAINER_NAME="validation-service"
 def CONTAINER_TAG="01"
+def DOCKER_HUB_ID="dockerHub"
 def DOCKER_HUB_USER="hakdogan"
 def HTTP_PORT="9080"
 def HTTPS_PORT="9443"
@@ -28,7 +29,7 @@ node {
     }
 
     stage('Push to Docker Registry'){
-        withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: DOCKER_HUB_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             pushToImage(CONTAINER_NAME, CONTAINER_TAG, USERNAME, PASSWORD)
         }
     }
