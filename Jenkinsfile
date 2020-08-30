@@ -34,9 +34,13 @@ node {
         }
     }
 
-    stage('Run App'){
-        runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT, HTTPS_PORT)
+    stage('Deploy to Kubernetes'){
+        deployKubernetes(CONTAINER_NAME, HTTP_PORT)
     }
+
+    //stage('Run App'){
+    //    runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT, HTTPS_PORT)
+    //}
 }
 
 def imagePrune(containerName){
@@ -64,4 +68,10 @@ def runApp(containerName, tag, dockerHubUser, httpPort, httpsPort){
     sh "docker pull $dockerHubUser/$containerName:$tag"
     sh "docker run -d --rm -p $httpPort:$httpPort --name $containerName --env HTTP_PORT=$httpPort --env HTTPS_PORT=$httpsPort $dockerHubUser/$containerName:$tag"
     echo "Application started on port: ${httpPort} (http)"
+}
+
+def deployKubernetes(deploymentName, port){
+    sh "microk8s.kubectl apply -f validation.yaml"
+    sh "microk8s.kubectl expose deployment $deploymentName --type=LoadBalancer --port $port"
+    echo "Application started on port: ${port} (http)"
 }
