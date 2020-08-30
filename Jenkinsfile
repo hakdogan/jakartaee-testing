@@ -46,9 +46,10 @@ def imagePrune(containerName){
 }
 
 def imageBuild(containerName, tag){
-    sh "cd validation-service"
-    sh "docker build -t $containerName:$tag -t $containerName --pull --no-cache ."
-    echo "Image build complete"
+    dir("validation-service") {
+        sh "docker build -t $containerName:$tag -t $containerName --pull --no-cache ."
+        echo "Image build complete"
+    }
 }
 
 def pushToImage(containerName, tag, dockerUser, dockerPassword){
